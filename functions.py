@@ -3,19 +3,51 @@
 # напиши функцию, которая принимает на вход любое
 # количество чисел и сообщает, есть ли среди них чётное
 
+entered_numbers = [int(number) for number in input("enter numbers: ").split()]
+
+for number in set(entered_numbers):
+    if number % 2 == 0:
+        print(f"{number} - четное")
 
 # используй тернарный оператор, чтобы вызвать функцию
 # если возраст больше 21 года, в противном случае верни
 # сообщение "Мы не продаём алкоголь несовершеннолетним."
-age = 17
-sell_alcohol()
+#age = 17
+#sell_alcohol()
+
+answer = input('Сколько вам лет?')
+answer = int(answer)
+if answer < 21:
+    print('Мы не продаём алкоголь несовершеннолетним.')
+else:
+    print('Вот ваш алкоголь')
 
 
 # напиши функцию, которая проверит, является ли строка ключевым словом в Питоне
 # тебе понадобится модуль keyword, импортируй его и изучи с помощью dir()
 
+import keyword
+
+def is_keyword(str):
+    if keyword.iskeyword(str):
+        print("keyword")
+    else:
+        print("not keyword")
 
 # напиши функцию, которая возвращает тип данных на русском языке:
 # число, строка, булевый, None, список, кортеж, множество, словарь
 # пример: get_type("что-то") возвращает "Это строка."
 # пример2: get_type(42) возвращает "Это словарь."
+
+def check_data_type(data):
+    switcher = {
+    'int' : 'число',
+    'str' :  'строка',
+    'bool' : 'булевый',
+    'None' : 'None',
+    'list' : 'список'
+    'tuple' : 'кортедж',
+    'set' : 'множество',
+    'dict' : 'словарь',
+    }
+    return f' Это {switcher[type(data).__name__]}'
